@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
 
 /*
  * 
@@ -18,9 +12,20 @@ using System.Windows;
 namespace ModernDev
 {
     /// <summary>
-    /// Interaktionslogik für "App.xaml"
+    /// Model für einen Mitarbeiter Datensatz
     /// </summary>
-    public partial class App : Application
+    public class Employee
     {
+        public string Name { get; set; }
+
+        public DateTime Joined { get; set; }
+
+        public int Age { get; set; }
+
+        public Location Home { get; set; }
+
+        public string Email { get; set; }
+
+        public EmployeeGrade Grade { get; set; }
     }
 }

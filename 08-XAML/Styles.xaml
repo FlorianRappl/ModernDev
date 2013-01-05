@@ -1,0 +1,70 @@
+﻿<Window x:Class="ModernDev.Styles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Beispiel 8 - XAML" Height="270" Width="270">
+    <Window.Resources>
+        <!-- Definieren einen Style für Buttons der nur über Keys abgerufen werden kann -->
+        <Style x:Key="SpecialButton" TargetType="{x:Type Button}">
+            
+            <!-- Wollen immer ein Padding (innerer Abstand) von 10 haben -->
+            <Setter Property="Padding" Value="10" />
+            
+            <!-- Auslöser (Zustände) definieren -->
+            <Style.Triggers>
+                <!-- Auslöser: Maus drüber -->
+                <Trigger Property="Button.IsMouseOver" Value="true">
+                    
+                    <!-- Können auch für Vordergrund komplexe Brushes verwenden -->
+                    <Setter Property="Foreground">
+                        <Setter.Value>
+                            <LinearGradientBrush>
+                                <GradientStop Color="Yellow" Offset="0" />
+                                <GradientStop Color="Green" Offset="1" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                
+                <!-- Auslöser: Button wird gedrückt -->
+                <Trigger Property="Button.IsPressed" Value="true">
+                    <Setter Property="Foreground" Value="Green"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Zum Vererben von Styles brauchen wir Keys -->
+        <Style TargetType="TextBox" x:Key="BaseTextBox">
+            <Setter Property="Width" Value="100" />
+        </Style>
+
+        <!-- BasedOn entsprechend verwenden -->
+        <Style TargetType="TextBox" x:Key="BadTextBox"
+               BasedOn="{StaticResource BaseTextBox}">
+            <Setter Property="Background" Value="Red" />
+        </Style>
+
+        <!-- Und nochmal das gleiche -->
+        <Style TargetType="TextBox" x:Key="GoodTextBox"
+               BasedOn="{StaticResource BaseTextBox}">
+            <Setter Property="Background" Value="Green" />
+        </Style>
+    </Window.Resources>
+    <Canvas>
+        <!-- Unser Button mit den oben festgelegten Style -->
+        <Button Style="{StaticResource SpecialButton}" Content="MyButton"
+                Canvas.Left="50" Canvas.Top="50" />
+        
+        <!-- Einfach mal was hinzeichnen - dies geht überall! -->
+        <Path Stroke="Black" StrokeThickness="1"
+             Data="M 10,100 A 100,50 45 1 0 200,100" />
+
+        <!-- Mal unsere Basistextbox verwenden -->
+        <TextBox Style="{StaticResource BaseTextBox}" Canvas.Left="140" Canvas.Top="20" />
+        
+        <!-- Und unsere vererbte TextBox "Good" -->
+        <TextBox Style="{StaticResource GoodTextBox}" Canvas.Left="140" Canvas.Top="50" />
+
+        <!-- Hier mal den Stil "BadTextBox" -->
+        <TextBox Style="{StaticResource BadTextBox}" Canvas.Left="140" Canvas.Top="80" />
+    </Canvas>
+</Window>

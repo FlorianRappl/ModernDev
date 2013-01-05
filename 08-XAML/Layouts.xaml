@@ -1,0 +1,65 @@
+﻿<Window x:Class="ModernDev.Layouts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Beispiel 8 - XAML" Height="300" Width="300">
+    <!-- Das Grid ist neu (gabs zwar schon in WinForms, aber bei
+         weitem nicht in dieser Form und so mächtig) -->
+    <Grid>
+        <!-- Legen ein paar Zeilen im Grid (Raster) fest -->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Dieses Panel ist ebenfalls neu - Ziel: Steuerelemente
+             horizontal oder vertikal ausrichten -->
+        <StackPanel Grid.Row="0" Margin="5">
+            <Button Click="OpenStyles" Content="Styles öffnen" />
+            <Button Click="OpenTriggers" Content="Trigger öffnen" />
+        </StackPanel>
+
+        <!-- Dieses Panel ist recht ähnlich zur Docking Eigenschaft
+             von Windows Forms Controls -->
+        <DockPanel Grid.Row="1" Margin="5">
+            <Button Click="OpenStoryboard" Content="Storyboard öffnen"
+                    DockPanel.Dock="Left" />
+            <Button Click="OpenTemplates" Content="Templates öffnen"
+                    DockPanel.Dock="Left" />
+        </DockPanel>
+        
+        <!-- Das WrapPanel soll ähnlich dem StackPanel sein, jedoch
+             mit dem Unterschied eines Umbruchs (Wrap) -->
+        <WrapPanel Grid.Row="2" Margin="5">
+            <!-- Rechteck -->
+            <Rectangle Width="60" Height="30" Margin="3" Fill="Blue" />
+            
+            <!-- Ellipse -->
+            <Ellipse Width="60" Height="30" Margin="3" Fill="Green" />
+            
+            <!-- Linie -->
+            <Line Margin="3" StrokeThickness="1" Stroke="Red"
+                  X1="0" Y1="0" X2="60" Y2="30" />
+
+            <!-- Mehreck - in diesem Fall ein Dreieck -->
+            <Polygon Points="0,0 0,30 60,15" Stroke="Purple" Margin="3"
+                     StrokeThickness="2" />
+        </WrapPanel>
+        
+        <!-- Dieses Panel ist analog zum Grid, allerdings mit gleichmäßigen
+             (uniform) Zellengrößen -->
+        <UniformGrid Grid.Row="3" Margin="5" Rows="2" Columns="2">
+            <!-- Einfach nochmal die selben Controls wie eben -->
+            <Rectangle Width="60" Height="30" Margin="3" Fill="Blue" />
+
+            <Ellipse Width="60" Height="30" Margin="3" Fill="Green" />
+
+            <Line Margin="3" StrokeThickness="1" Stroke="Red"
+                  X1="0" Y1="0" X2="60" Y2="30" />
+
+            <Polygon Points="0,0 0,30 60,15" Stroke="Purple" Margin="3"
+                     StrokeThickness="2" />
+        </UniformGrid>
+    </Grid>
+</Window>

@@ -1,8 +1,98 @@
 ﻿<Window x:Class="ModernDev.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        xmlns:local="clr-namespace:ModernDev"
+        Title="Beispiel 5 - PLINQ" Height="350" Width="525">
+    <Grid Margin="10">
+        <local:Spinner x:Name="Loading"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         
+        <TabControl Visibility="Hidden" x:Name="Tabs">
+            <TabItem Header="Quadrieren">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Text="Quelle" Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <TextBlock Text="Ergebnis" Grid.Row="0" Grid.Column="2"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <ListBox Grid.Row="1" Grid.Column="0" x:Name="SourceQuad" />
+
+                    <ListBox Grid.Row="1" Grid.Column="2" x:Name="ResultQuad" />
+
+                    <Button Grid.Row="3" Grid.Column="0" Content="Ausführen"
+                            HorizontalAlignment="Right" Padding="10" Click="RunQuad" />
+
+                    <Button Grid.Row="3" Grid.Column="2" Content="Zurücksetzen"
+                            HorizontalAlignment="Right" Padding="10" Click="ResetQuad" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Statistik">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Quelle" Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <TextBlock Text="Ergebnis" Grid.Row="0" Grid.Column="2"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <ListBox Grid.Row="1" Grid.Column="0" x:Name="SourceStat" />
+
+                    <ListBox Grid.Row="1" Grid.Column="2" x:Name="ResultStat" />
+
+                    <Button Grid.Row="3" Grid.Column="0" Content="Ausführen"
+                            HorizontalAlignment="Right" Padding="10" Click="RunStat" />
+
+                    <Button Grid.Row="3" Grid.Column="2" Content="Zurücksetzen"
+                            HorizontalAlignment="Right" Padding="10" Click="ResetStat" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Abbrechen">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="1" Grid.Column="0" Content="Ausführen"
+                            HorizontalAlignment="Right" Padding="10" Click="RunCancel" />
+
+                    <Button Grid.Row="1" Grid.Column="2" Content="Abbrechen"
+                            HorizontalAlignment="Left" Padding="10" Click="CancelCancel" />
+                    
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

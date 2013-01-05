@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 /*
  * 
- * (c) Florian Rappl, 2012.
+ * (c) Florian Rappl, 2012-2013.
  * 
  * This work is a demonstration for training purposes and may be used freely for private purposes.
  * Usage for business training / workshops is prohibited without explicit permission from the author.
@@ -32,6 +32,12 @@ namespace ModernDev
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            //Ziemlich analog zu Windows Forms
+            new Layouts().Show();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,16 @@ using System.Threading.Tasks;
 
 namespace ModernDev
 {
-    class Program
+    class MyTraceListener : TraceListener
     {
-        static void Main(string[] args)
+        public override void Write(string message)
         {
-            //Neue Kommandoklasse erstellen (Hauptmenübefehle)
-            var cmd = new MainCommand();
-            //Abspielen
-            cmd.Run();
+            Console.Write(message);
+        }
+
+        public override void WriteLine(string message)
+        {
+            Console.WriteLine("[{1}:{2}.{3}] TRACE >> {0}", message, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
         }
     }
 }

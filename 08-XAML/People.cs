@@ -15,14 +15,14 @@ using System.Threading.Tasks;
 
 namespace ModernDev
 {
-    class Program
+    class People : List<Person>
     {
-        static void Main(string[] args)
-        {
-            //Neue Kommandoklasse erstellen (Hauptmenübefehle)
-            var cmd = new MainCommand();
-            //Abspielen
-            cmd.Run();
-        }
+    }
+
+    class Person
+    {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
     }
 }

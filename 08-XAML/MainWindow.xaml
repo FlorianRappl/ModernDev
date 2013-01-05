@@ -1,8 +1,22 @@
 ﻿<Window x:Class="ModernDev.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Beispiel 8 - XAML" Height="350" Width="525">
+    <Window.Resources>
+            <LinearGradientBrush x:Key="FunkyBrush">
+                <GradientStop Color="Yellow" Offset="0" />
+                <GradientStop Color="Green" Offset="1" />
+            </LinearGradientBrush>
+    </Window.Resources>
+    <Button Content="Ein Button als Root - Klick mich!"
+            Click="OnButtonClick" Background="{StaticResource FunkyBrush}">
+        <!-- Die folgenden Zeilen brauchen wir nur, wenn wir auf
+             die (wiederverwendbare) Resource verzichten -->
+        <!--<Button.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="Yellow" Offset="0" />
+                <GradientStop Color="Green" Offset="1" />
+            </LinearGradientBrush>
+        </Button.Background>-->
+    </Button>
 </Window>

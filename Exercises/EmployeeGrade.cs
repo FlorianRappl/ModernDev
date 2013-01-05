@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
 
 /*
  * 
@@ -17,10 +11,13 @@ using System.Windows;
 
 namespace ModernDev
 {
-    /// <summary>
-    /// Interaktionslogik für "App.xaml"
-    /// </summary>
-    public partial class App : Application
+    public enum EmployeeGrade
     {
+        Trainee,
+        Worker,
+        Head,
+        Director,
+        Board,
+        CEO
     }
 }

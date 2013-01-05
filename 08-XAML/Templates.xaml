@@ -1,0 +1,98 @@
+﻿<Window x:Class="ModernDev.Templates"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Beispiel 8 - XAML" Height="300" Width="300">
+    <Window.Resources>
+        <!-- Wichtige Eigenschaften als Keys festlegen -->
+        <SolidColorBrush x:Key="InputControlNormalFillBrush" Color="#222" />
+
+        <SolidColorBrush x:Key="InputControlStrokeBrush" Color="#666" />
+
+        <SolidColorBrush x:Key="ControlGlyphBrush" Color="#FEFEFE" />
+
+        <SolidColorBrush x:Key="InputControlGlyphBrush" Color="Orange" />
+
+        <sys:Double x:Key="InputControlStrokeThickness">2</sys:Double>
+
+        <!-- Erstellt ein neues Template für CheckBoxen -->
+        <ControlTemplate TargetType="CheckBox" x:Key="CheckBoxTemplate">
+            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" 
+                    Background="{TemplateBinding Background}">
+                
+                <!-- TemplateBinding für VOM USER festlegbare Eigenschaften lassen -->
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CheckStates">
+                        <VisualState x:Name="Checked">
+                            <Storyboard>
+                                <DoubleAnimation Duration="0" To="1" 
+                                                 Storyboard.TargetProperty="Opacity" 
+                                                 Storyboard.TargetName="CheckGlyph" />
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Unchecked" />
+                        <VisualState x:Name="Indeterminate">
+                            <Storyboard>
+                                <DoubleAnimation Duration="0" To="1"
+                                                 Storyboard.TargetProperty="Opacity" 
+                                                 Storyboard.TargetName="IndeterminateGlyph" />
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
+                    
+                    <Rectangle x:Name="NormalRectangle" 
+                               Fill="{StaticResource InputControlNormalFillBrush}"  
+                               Stroke="{StaticResource InputControlStrokeBrush}" 
+                               StrokeThickness="{StaticResource InputControlStrokeThickness}" 
+                               UseLayoutRounding="True" Height="21" Width="21" />
+                    
+                    <!-- Ein X zeichnen (Checkbox AN) -->
+                    <Path x:Name="CheckGlyph" 
+                          Data="M103,240 L111,240 119,248 127,240 135,240 123,252 135,264 127,264 119,257 111,264 103,264 114,252 z" 
+                          Fill="{StaticResource InputControlGlyphBrush}" FlowDirection="LeftToRight"
+                          Height="14" Width="16" Opacity="0" Stretch="Fill" />
+                    
+                    <!-- Ein Kreis soll zeigen, dass der Zustand der Checkbox N/A ist -->
+                    <Ellipse x:Name="IndeterminateGlyph" 
+                             Fill="{StaticResource ControlGlyphBrush}" 
+                             Height="12" Width="12" Opacity="0" />
+                    
+                    <!-- Nach wie vor soll Content möglich sein - wird über die Eigenschaft CONTENT ermöglicht -->
+                    <ContentPresenter x:Name="ContentPresenter"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                      Content="{TemplateBinding Content}"
+                                      Margin="{TemplateBinding Padding}" Grid.Row="1" 
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- (Unsere) CheckBox AUS -->
+        <CheckBox Template="{StaticResource CheckBoxTemplate}" Grid.Row="0" 
+                  Content="Erster Block" HorizontalContentAlignment="Center" />
+
+        <!-- (Unsere) CheckBox AN -->
+        <CheckBox Template="{StaticResource CheckBoxTemplate}" Grid.Row="1" IsChecked="True"
+                  Content="Zweiter Block" HorizontalContentAlignment="Center" />
+
+        <!-- (Unsere) CheckBox NICHT DEFINIERT -->
+        <CheckBox Template="{StaticResource CheckBoxTemplate}" Grid.Row="2" IsChecked="{x:Null}"
+                  Content="Dritter Block" HorizontalContentAlignment="Center" />
+    </Grid>
+</Window>

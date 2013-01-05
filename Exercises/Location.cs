@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
 
 /*
  * 
@@ -18,9 +12,20 @@ using System.Windows;
 namespace ModernDev
 {
     /// <summary>
-    /// Interaktionslogik für "App.xaml"
+    /// Model für einen Ort
     /// </summary>
-    public partial class App : Application
+    public class Location
     {
+        public string Street { get; set; }
+
+        public string Number { get; set; }
+
+        public string Zip { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        public string Country { get; set; }
     }
 }
