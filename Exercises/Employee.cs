@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 /*
  * 
@@ -16,6 +17,10 @@ namespace ModernDev
     /// </summary>
     public class Employee
     {
+        static Random random = new Random();
+
+        static DateTime birthday;
+
         public string Name { get; set; }
 
         public DateTime Joined { get; set; }
@@ -27,5 +32,25 @@ namespace ModernDev
         public string Email { get; set; }
 
         public EmployeeGrade Grade { get; set; }
+
+        public double ComputeSalary()
+        {
+            Task.Delay(200); //Simuliere Zeit zum Berechnen
+            return 1200.0 + //Fix
+                random.NextDouble() * 500.0 + //Leistungsbezogen
+                1000.0 * (int)Grade + //Gehaltsstufe
+                (DateTime.Today.Subtract(Joined).Days / 365) * 200.0; //Beförderungsstufen
+        }
+
+        public DateTime Birthday
+        {
+            get
+            {
+                birthday = DateTime.Today.AddYears(-Age);
+                birthday = birthday.AddDays(-random.Next(0, 10));
+                birthday = birthday.AddMonths(-random.Next(0, 10));
+                return birthday;
+            }
+        }
     }
 }

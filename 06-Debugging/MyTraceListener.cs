@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 
 namespace ModernDev
 {
+    /// <summary>
+    /// Schreiben unseren eigenen TraceListener (könnten auch einen vorhandenen verwenden).
+    /// </summary>
     class MyTraceListener : TraceListener
     {
         public override void Write(string message)
