@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Threading;
 
 /*
  * 
@@ -35,7 +35,7 @@ namespace ModernDev
 
         public double ComputeSalary()
         {
-            Task.Delay(200); //Simuliere Zeit zum Berechnen
+            Thread.Sleep(300); //Simuliere Zeit zum Berechnen
             return 1200.0 + //Fix
                 random.NextDouble() * 500.0 + //Leistungsbezogen
                 1000.0 * (int)Grade + //Gehaltsstufe
@@ -46,9 +46,11 @@ namespace ModernDev
         {
             get
             {
-                birthday = DateTime.Today.AddYears(-Age);
-                birthday = birthday.AddDays(-random.Next(0, 10));
-                birthday = birthday.AddMonths(-random.Next(0, 10));
+				Thread.Sleep(300);
+				birthday = DateTime.Today.AddYears(-Age);
+				birthday = birthday.AddDays(-random.Next(0, 10));
+				birthday = birthday.AddMonths(-random.Next(0, 10));
+				Thread.Sleep(300);
                 return birthday;
             }
         }

@@ -221,7 +221,16 @@ namespace ModernDev
                 State = "SL",
                 Street = "Bergstraße",
                 Zip = "5237"
-            }
+            },
+            new Location // 22
+            {
+                City = "Nittendorf",
+                Country = "Germany",
+                Number = "16",
+                State = "BY",
+                Street = "Peter-Rosegger-Str.",
+                Zip = "93152"
+            },
         });
 
         #endregion
@@ -426,6 +435,15 @@ namespace ModernDev
                 Home = locations[21],
                 Joined = new DateTime(2008, 9, 1),
                 Name = "Marissa Meyer"
+            },
+            new Employee // 22
+            {
+                Age = 23,
+                Email = "mfass@demail.de",
+                Grade = EmployeeGrade.Trainee,
+                Home = locations[22],
+                Joined = new DateTime(2011, 9, 1),
+                Name = "Michael Fassbender"
             }
         });
 
@@ -543,5 +561,42 @@ namespace ModernDev
         }
 
         #endregion
+
+		#region Add and Remove entries
+
+		public static void AddEmployee(Employee employee)
+		{
+			employees.Add(employee);
+
+			if(!locations.Contains(employee.Home))
+				AddLocation(employee.Home);
+		}
+
+		public static void AddProject(Project project)
+		{
+			projects.Add(project);
+		}
+
+		public static void AddLocation(Location location)
+		{
+			locations.Remove(location);
+		}
+
+		public static void RemoveEmployee(Employee employee)
+		{
+			employees.Remove(employee);
+		}
+
+		public static void RemoveProject(Project project)
+		{
+			projects.Remove(project);
+		}
+
+		public static void RemoveLocation(Location location)
+		{
+			locations.Remove(location);
+		}
+
+		#endregion
     }
 }
