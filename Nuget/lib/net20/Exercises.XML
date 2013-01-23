@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Exercises</name>
+    </assembly>
+    <members>
+        <member name="T:ModernDev.DB">
+            <summary>
+            Diese "Datenbank" (ist natürlich keine echte Datenbank, aber simuliert für uns einen DAL
+            zu einer Datenbank mittels eines ORM) gibt uns Zugang zu den Models, welche für die
+            Aufgaben verwendet werden sollen.
+            </summary>
+        </member>
+        <member name="M:ModernDev.DB.AddEmployee(ModernDev.Employee)">
+            <summary>
+            Adds another employee and (if not already done) his / her location.
+            </summary>
+            <param name="employee">The employee to add.</param>
+        </member>
+        <member name="M:ModernDev.DB.AddProject(ModernDev.Project)">
+            <summary>
+            Adds another project.
+            </summary>
+            <param name="project">The project to add.</param>
+        </member>
+        <member name="M:ModernDev.DB.AddLocation(ModernDev.Location)">
+            <summary>
+            Adds another location.
+            </summary>
+            <param name="location">The location to add.</param>
+        </member>
+        <member name="M:ModernDev.DB.RemoveEmployee(ModernDev.Employee)">
+            <summary>
+            Removes an employee. Does not remove his / her location.
+            </summary>
+            <param name="employee">The employee to remove.</param>
+        </member>
+        <member name="M:ModernDev.DB.RemoveProject(ModernDev.Project)">
+            <summary>
+            Removes a project.
+            </summary>
+            <param name="project">The project to remove.</param>
+        </member>
+        <member name="M:ModernDev.DB.RemoveLocation(ModernDev.Location)">
+            <summary>
+            Removes a location.
+            </summary>
+            <param name="location">The location to remove.</param>
+        </member>
+        <member name="P:ModernDev.DB.Employees">
+            <summary>
+            Gets all the employees.
+            </summary>
+        </member>
+        <member name="P:ModernDev.DB.Locations">
+            <summary>
+            Gets all the locations.
+            </summary>
+        </member>
+        <member name="P:ModernDev.DB.Projects">
+            <summary>
+            Gets all the projects.
+            </summary>
+        </member>
+        <member name="T:ModernDev.Employee">
+            <summary>
+            Model für einen Mitarbeiter Datensatz
+            </summary>
+        </member>
+        <member name="M:ModernDev.Employee.ComputeSalary">
+            <summary>
+            Computes the employee's salary. This takes ~300 ms.
+            </summary>
+            <returns>The freshly computed salary.</returns>
+        </member>
+        <member name="P:ModernDev.Employee.Name">
+            <summary>
+            Gets or sets the name of the employee.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Employee.Joined">
+            <summary>
+            Gets or sets the date when the employee joined the company.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Employee.Age">
+            <summary>
+            Gets or sets the age of the employee.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Employee.Home">
+            <summary>
+            Gets or sets the home data of the employee.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Employee.Email">
+            <summary>
+            Gets or sets the email of the employee.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Employee.Grade">
+            <summary>
+            Gets or sets the position of the employee.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Employee.Birthday">
+            <summary>
+            Gets the birthday of the employee. This has to be computed and
+            is not thread-safe.
+            </summary>
+        </member>
+        <member name="T:ModernDev.EmployeeGrade">
+            <summary>
+            A list of possible positions in the company.
+            </summary>
+        </member>
+        <member name="F:ModernDev.EmployeeGrade.Trainee">
+            <summary>
+            A trainee.
+            </summary>
+        </member>
+        <member name="F:ModernDev.EmployeeGrade.Worker">
+            <summary>
+            A normal worker.
+            </summary>
+        </member>
+        <member name="F:ModernDev.EmployeeGrade.Head">
+            <summary>
+            Department head.
+            </summary>
+        </member>
+        <member name="F:ModernDev.EmployeeGrade.Director">
+            <summary>
+            Director of a department.
+            </summary>
+        </member>
+        <member name="F:ModernDev.EmployeeGrade.Board">
+            <summary>
+            On the board.
+            </summary>
+        </member>
+        <member name="F:ModernDev.EmployeeGrade.CEO">
+            <summary>
+            The boss!
+            </summary>
+        </member>
+        <member name="T:ModernDev.Location">
+            <summary>
+            Model für einen Ort
+            </summary>
+        </member>
+        <member name="P:ModernDev.Location.Street">
+            <summary>
+            Gets or sets the street.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Location.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Location.Zip">
+            <summary>
+            Gets or sets the postal code.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Location.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Location.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Location.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+        </member>
+        <member name="T:ModernDev.Project">
+            <summary>
+            Model für ein Projekt
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Name">
+            <summary>
+            Gets or sets the name of the project.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Description">
+            <summary>
+            Gets or sets the description for the project.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Responsible">
+            <summary>
+            Gets or sets who is responsible for the project.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Workers">
+            <summary>
+            Gets or sets the involved persons.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Budget">
+            <summary>
+            Gets or sets the budget.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Started">
+            <summary>
+            Gets or sets the time when the project has started or should start.
+            </summary>
+        </member>
+        <member name="P:ModernDev.Project.Status">
+            <summary>
+            Gets or sets the status of the project.
+            </summary>
+        </member>
+        <member name="T:ModernDev.ProjectStatus">
+            <summary>
+            Contains a list of possible states for the project.
+            </summary>
+        </member>
+        <member name="F:ModernDev.ProjectStatus.Planned">
+            <summary>
+            The project is planned.
+            </summary>
+        </member>
+        <member name="F:ModernDev.ProjectStatus.Started">
+            <summary>
+            The project already started.
+            </summary>
+        </member>
+        <member name="F:ModernDev.ProjectStatus.Paused">
+            <summary>
+            The project is currently on hold.
+            </summary>
+        </member>
+        <member name="F:ModernDev.ProjectStatus.Finished">
+            <summary>
+            The project already finished.
+            </summary>
+        </member>
+    </members>
+</doc>

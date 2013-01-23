@@ -11,11 +11,26 @@
 
 namespace ModernDev
 {
+    /// <summary>
+    /// Contains a list of possible states for the project.
+    /// </summary>
     public enum ProjectStatus
     {
+        /// <summary>
+        /// The project is planned.
+        /// </summary>
         Planned,
+        /// <summary>
+        /// The project already started.
+        /// </summary>
         Started,
+        /// <summary>
+        /// The project is currently on hold.
+        /// </summary>
         Paused,
+        /// <summary>
+        /// The project already finished.
+        /// </summary>
         Finished
     }
 }

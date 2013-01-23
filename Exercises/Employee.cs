@@ -21,18 +21,40 @@ namespace ModernDev
 
         static DateTime birthday;
 
+        /// <summary>
+        /// Gets or sets the name of the employee.
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the date when the employee joined the company.
+        /// </summary>
         public DateTime Joined { get; set; }
 
+        /// <summary>
+        /// Gets or sets the age of the employee.
+        /// </summary>
         public int Age { get; set; }
 
+        /// <summary>
+        /// Gets or sets the home data of the employee.
+        /// </summary>
         public Location Home { get; set; }
 
+        /// <summary>
+        /// Gets or sets the email of the employee.
+        /// </summary>
         public string Email { get; set; }
 
+        /// <summary>
+        /// Gets or sets the position of the employee.
+        /// </summary>
         public EmployeeGrade Grade { get; set; }
 
+        /// <summary>
+        /// Computes the employee's salary. This takes ~300 ms.
+        /// </summary>
+        /// <returns>The freshly computed salary.</returns>
         public double ComputeSalary()
         {
             Thread.Sleep(300); //Simuliere Zeit zum Berechnen
@@ -42,6 +64,10 @@ namespace ModernDev
                 (DateTime.Today.Subtract(Joined).Days / 365) * 200.0; //Beförderungsstufen
         }
 
+        /// <summary>
+        /// Gets the birthday of the employee. This has to be computed and
+        /// is not thread-safe.
+        /// </summary>
         public DateTime Birthday
         {
             get

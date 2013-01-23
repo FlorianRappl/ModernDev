@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ModernDev.SampleData</id>
+    <version>1.0.0</version>
+    <authors>Florian Rappl</authors>
+    <owners>Florian Rappl</owners>
+    <licenseUrl>https://github.com/FlorianRappl/ModernDev#some-legal-stuff</licenseUrl>
+    <projectUrl>https://github.com/FlorianRappl/ModernDev</projectUrl>
+    <iconUrl>http://talks.florian-rappl.de/ModernDev/pictures/vs_icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Contains all models required for doing the exercises of the Modern Development workshop involving Visual Studio, C# and WPF with XAML.</description>
+    <releaseNotes>Nothing special.</releaseNotes>
+    <copyright>Copyright 2012-2013, Florian Rappl.</copyright>
+    <tags>Exercises Modern Development Database LINQ Query PLINQ Thread Task Cancel</tags>
+  </metadata>
+</package>
