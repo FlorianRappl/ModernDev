@@ -53,9 +53,9 @@ namespace ModernDev
             Console.WriteLine("{0} ist an {1} Projekten beteiligt ...", maxWorker.Name, most);
         }
 
-        static async Task<Employee> FindRecentYoungestAsync(List<Employee> workers)
+        static Employee FindRecentYoungestAsync(List<Employee> workers)
         {
-            return await Task.Run(() =>
+            return Task.Run(() =>
             {
                 return FindRecentYoungest(workers);
             });
@@ -66,7 +66,7 @@ namespace ModernDev
             return workers
                 .Where(m => m.Joined.CompareTo(new DateTime(DateTime.Today.Year, 1, 1)) >= 0)
                 .OrderBy(m => m.Age)
-                .FirstOrDefault();
+                .First();
         }
     }
 }
