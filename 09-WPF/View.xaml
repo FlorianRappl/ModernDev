@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:local="clr-namespace:ModernDev"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Beispiel 9 - MVVM" Height="350" Width="525">
     
     <!-- Legen den Context über XAML fest - hier haben wir KEINEN Code Behind -->
     <Window.DataContext>

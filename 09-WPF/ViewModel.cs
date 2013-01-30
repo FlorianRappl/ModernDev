@@ -47,6 +47,8 @@ namespace ModernDev
     /// </summary>
     class MyViewModel : BaseViewModel
     {
+        bool isloading;
+
         public MyViewModel()
         {
             Customers = new ObservableCollection<CustomerViewModel>();
@@ -73,10 +75,15 @@ namespace ModernDev
             {
                 return new RelayCommand(async x =>
                 {
+                    if (isloading)
+                        return;
+
+                    isloading = true;
                     Customers.Clear();
                     //Verzögert damit wir das RELOADEN sehen
                     await Task.Delay(2000);
                     Load();
+                    isloading = false;
                 });
             }
         }
